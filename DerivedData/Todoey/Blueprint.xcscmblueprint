@@ -1,19 +1,26 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "78ED5E678FAEF6C945D08004E03ECB29014591CC",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "28695389608EBDB389503A258A080956D0BA276F",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "78ED5E678FAEF6C945D08004E03ECB29014591CC" : 0
+    "78ED5E678FAEF6C945D08004E03ECB29014591CC" : 0,
+    "28695389608EBDB389503A258A080956D0BA276F" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7FA0E28F-5C2D-4F36-8286-6B62B6DE4474",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "78ED5E678FAEF6C945D08004E03ECB29014591CC" : "helloworld\/"
+    "78ED5E678FAEF6C945D08004E03ECB29014591CC" : "..",
+    "28695389608EBDB389503A258A080956D0BA276F" : "Todoey\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Todoey",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Todoey\/Todoey\/Todoey.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Todoey.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nileshkum\/Todoey.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "28695389608EBDB389503A258A080956D0BA276F"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nileshkum\/Todoey.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
