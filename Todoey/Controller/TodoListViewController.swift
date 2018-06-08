@@ -11,17 +11,28 @@ import UIKit
 class TodoListViewController: UITableViewController {
     
     
- var itemArray = ["Find Mike","Buy Eggs", "Lets Party"]
+ var itemArray = [Item]()
+    
  let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
-            
-            itemArray = items
-            
-        }
+        let newItem = Item()
+        newItem.title = "Find Mike"
+        itemArray.append(newItem)
+        
+        let newItem2 = Item()
+        newItem2.title = "Buy Eggs"
+        itemArray.append(newItem2)
+        
+        let newItem3 = Item()
+        newItem3.title = "Boil Milk"
+        itemArray.append(newItem3)
+        
+//        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
+//            itemArray = items
+//        }
     }
     
     //MARK - TableView Datasource Methods
@@ -29,7 +40,7 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
-        cell.textLabel?.text = itemArray[indexPath.row]
+        cell.textLabel?.text = itemArray[indexPath.row].title
         
         return cell
     }
@@ -71,7 +82,10 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // what will happen when user click on add button
             
-            self.itemArray.append(textField.text!)
+            let newItem = Item()
+            newItem.title = textField.text!
+            self.itemArray.append(newItem)
+//            self.itemArray.append(textField.text!)
             self.defaults.setValue(self.itemArray, forKey: "TodoListArray")
             self.tableView.reloadData()
         }
