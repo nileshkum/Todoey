@@ -12,25 +12,15 @@ class TodoListViewController: UITableViewController {
     
     
  var itemArray = [Item]()
-    
- let defaults = UserDefaults.standard
+ let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
+        loadItems()
         
-        let newItem2 = Item()
-        newItem2.title = "Buy Eggs"
-        itemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem3.title = "Boil Milk"
-        itemArray.append(newItem3)
-        
-//        if let items = defaults.array(forKey: "TodoListArray") as? [String]{
+//        if let items = defaults.array(forKey: "TodoListArray") as? [Item]{
 //            itemArray = items
 //        }
     }
@@ -40,7 +30,21 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
         
-        cell.textLabel?.text = itemArray[indexPath.row].title
+        
+        let item = itemArray[indexPath.row]
+        
+        cell.textLabel?.text = item.title
+        
+        //Ternary OPerator
+        //value = condition ? valueIfTrue : valueIfFalse
+        
+        cell.accessoryType = item.done ? .checkmark : .none
+        
+//        if item.done == true {
+//            cell.accessoryType = .checkmark
+//        }else{
+//            cell.accessoryType = .none
+//        }
         
         return cell
     }
@@ -56,15 +60,16 @@ class TodoListViewController: UITableViewController {
         //print(itemArray[indexPath.row])
         
         
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done // this replace below line
+        saveItems()
         // Add checkark once selected
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            
-        }else {
-            
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+//        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//        }else {
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        }
+        
+        
         
         // Animation on selection
         tableView.deselectRow(at: indexPath, animated: true)
@@ -85,9 +90,11 @@ class TodoListViewController: UITableViewController {
             let newItem = Item()
             newItem.title = textField.text!
             self.itemArray.append(newItem)
+            
 //            self.itemArray.append(textField.text!)
-            self.defaults.setValue(self.itemArray, forKey: "TodoListArray")
-            self.tableView.reloadData()
+//            self.defaults.setValue(self.itemArray, forKey: "TodoListArray")
+            
+             self.saveItems()
         }
         
         
@@ -100,6 +107,37 @@ class TodoListViewController: UITableViewController {
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    // MARK Model Manipulation
+    
+    func saveItems(){
+        
+        let encoder = PropertyListEncoder()
+        
+        do {
+            
+            let data = try encoder.encode(itemArray)
+            try data.write(to: dataFilePath!)
+            
+        } catch {
+            print("Error encoding data")
+        }
+        
+        self.tableView.reloadData()
+        
+    }
+    
+    func loadItems(){
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+           let decoder = PropertyListDecoder()
+            do {
+               itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                
+            }
+        }
     }
     
 
