@@ -22,15 +22,27 @@
 		</data>
 		<key>Base.lproj/Main.storyboardc/UINavigationController-vjm-e6-PFY.nib</key>
 		<data>
-		Bpa31URE35AK9lkGBIxUt96QF2M=
+		Qranc8Zw4KdPzsoqS3QGybHVcAc=
 		</data>
 		<key>Base.lproj/Main.storyboardc/uvY-xi-eAX-view-5vQ-50-yfY.nib</key>
 		<data>
-		iYnnlj5OfJ/1/ARXlkONRbQNLEk=
+		uQaJpjGXdbke5jczt7t8zi8Etv4=
+		</data>
+		<key>DataModel.momd/DataModel.mom</key>
+		<data>
+		XXHf3TZcVHS+muCVWiU9RUCHk5A=
+		</data>
+		<key>DataModel.momd/VersionInfo.plist</key>
+		<data>
+		yZds6hkH51R0OA06kOnp7iPUtpM=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
 		D0qizJEeoRpTAAyYUEB50ZtreBI=
+		</data>
+		<key>Frameworks/libswiftCoreData.dylib</key>
+		<data>
+		IVk0gKa0d+WyDNU/BBq0B5sqMvI=
 		</data>
 		<key>Frameworks/libswiftCoreFoundation.dylib</key>
 		<data>
@@ -143,22 +155,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Bpa31URE35AK9lkGBIxUt96QF2M=
+			Qranc8Zw4KdPzsoqS3QGybHVcAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			ArcOkFnuq5HmF3Z+H4a0S/+02foVJpoOWbjLlqHejD8=
+			ES0gtICFp34b7Fs/tUOZvpUQqsYlcpmzjitQ+G4/WO8=
 			</data>
 		</dict>
 		<key>Base.lproj/Main.storyboardc/uvY-xi-eAX-view-5vQ-50-yfY.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iYnnlj5OfJ/1/ARXlkONRbQNLEk=
+			uQaJpjGXdbke5jczt7t8zi8Etv4=
 			</data>
 			<key>hash2</key>
 			<data>
-			AvNJdvZhiGl6j0tDINZ2WGSCp5LMmi7pWePjUJ7Altg=
+			yN5FMZwwOMWdweHrHMZjEf9zzdq69b2zJFM2O4VgKY4=
+			</data>
+		</dict>
+		<key>DataModel.momd/DataModel.mom</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XXHf3TZcVHS+muCVWiU9RUCHk5A=
+			</data>
+			<key>hash2</key>
+			<data>
+			2qlcmrFm8CJxtQaxNFYX9ZEn24NOjXcEo9Qb8dyWi38=
+			</data>
+		</dict>
+		<key>DataModel.momd/VersionInfo.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yZds6hkH51R0OA06kOnp7iPUtpM=
+			</data>
+			<key>hash2</key>
+			<data>
+			Dfrwt3cFm1FKiwPqic0AxMO+dQoK6JTu0wj5XoP5x+4=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
@@ -170,6 +204,17 @@
 			<key>hash2</key>
 			<data>
 			r9El9rtgpT7qTxhjyvpn0qaBLzxCoY0B/KxHl9V1knA=
+			</data>
+		</dict>
+		<key>Frameworks/libswiftCoreData.dylib</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IVk0gKa0d+WyDNU/BBq0B5sqMvI=
+			</data>
+			<key>hash2</key>
+			<data>
+			KEOawrPkCzr2ACnnyCAcR5k3mlyDYqm0Ken4HuI1RAA=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreFoundation.dylib</key>
