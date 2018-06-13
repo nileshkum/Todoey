@@ -197,6 +197,45 @@ SWIFT_CLASS("_TtC6Todoey11AppDelegate")
 @class NSEntityDescription;
 @class NSManagedObjectContext;
 
+SWIFT_CLASS_NAMED("Category")
+@interface Category : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class Item;
+@class NSSet;
+
+@interface Category (SWIFT_EXTENSION(Todoey))
+- (void)addItemsObject:(Item * _Nonnull)value;
+- (void)removeItemsObject:(Item * _Nonnull)value;
+- (void)addItems:(NSSet * _Nonnull)values;
+- (void)removeItems:(NSSet * _Nonnull)values;
+@end
+
+
+@interface Category (SWIFT_EXTENSION(Todoey))
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, strong) NSSet * _Nullable items;
+@end
+
+@class UIBarButtonItem;
+@class UITableView;
+@class UITableViewCell;
+@class NSBundle;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC6Todoey22CategoryViewController")
+@interface CategoryViewController : UITableViewController
+- (void)viewDidLoad;
+- (IBAction)addButtonPressed:(UIBarButtonItem * _Nonnull)sender;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC6Todoey4Item")
 @interface Item : NSManagedObject
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -206,13 +245,9 @@ SWIFT_CLASS("_TtC6Todoey4Item")
 @interface Item (SWIFT_EXTENSION(Todoey))
 @property (nonatomic) BOOL done;
 @property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, strong) Category * _Nullable parentCategory;
 @end
 
-@class UITableView;
-@class UITableViewCell;
-@class UIBarButtonItem;
-@class NSBundle;
-@class NSCoder;
 
 SWIFT_CLASS("_TtC6Todoey22TodoListViewController")
 @interface TodoListViewController : UITableViewController

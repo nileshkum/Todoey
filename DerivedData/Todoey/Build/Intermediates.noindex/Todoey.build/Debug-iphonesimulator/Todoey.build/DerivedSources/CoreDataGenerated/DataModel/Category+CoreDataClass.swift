@@ -1,5 +1,5 @@
 //
-//  Item+CoreDataClass.swift
+//  Category+CoreDataClass.swift
 //  
 //
 //  Created by Nilesh Kumar on 13/06/18.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-
-public class Item: NSManagedObject {
+@objc(Category)
+public class Category: NSManagedObject {
 
 }
