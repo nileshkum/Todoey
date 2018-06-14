@@ -11,7 +11,7 @@ import CoreData
 
 class CategoryViewController: UITableViewController {
     
-    var itemArray = [Category]() // Item of type entity
+    var categories = [Category]() // Item of type entity
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -37,7 +37,7 @@ class CategoryViewController: UITableViewController {
             
             let newCategory = Category(context: self.context)
             newCategory.name = textField.text!
-            self.itemArray.append(newCategory)
+            self.categories.append(newCategory)
             
             self.saveItems()
         }
@@ -60,20 +60,35 @@ class CategoryViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
         
-        let item = itemArray[indexPath.row]
-        
-        cell.textLabel?.text = item.name
+       
+        cell.textLabel?.text = categories[indexPath.row].name
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return itemArray.count
+        return categories.count
     }
     
     
     //MARK: - Table View Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "goToItems", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! TodoListViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategories = categories[indexPath.row]
+        }
+        
+    }
     
     
     //MARK: - DATA Manipulation
@@ -93,7 +108,7 @@ class CategoryViewController: UITableViewController {
     func loadItems(with request: NSFetchRequest<Category> = Category.fetchRequest()){
         
         do {
-            itemArray =  try context.fetch(request)
+            categories =  try context.fetch(request)
         } catch {
             print("Error Fetching request \(error)")
         }
