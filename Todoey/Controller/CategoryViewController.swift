@@ -33,8 +33,7 @@ class CategoryViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // what will happen when user click on add button
             
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            
+           
             let newCategory = Category(context: self.context)
             newCategory.name = textField.text!
             self.categories.append(newCategory)

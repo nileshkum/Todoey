@@ -7,10 +7,6 @@ provides-member:
 - ["6Todoey11AppDelegateC", ""]
 provides-dynamic-lookup:
 - "application"
-- "applicationDidBecomeActive"
-- "applicationDidEnterBackground"
-- "applicationWillEnterForeground"
-- "applicationWillResignActive"
 - "applicationWillTerminate"
 - "window"
 depends-top-level:
@@ -76,6 +72,7 @@ depends-member:
 - !private ["s7CVarArgP", "loadPersistentStores"]
 - !private ["s7CVarArgP", "persistentContainer"]
 - !private ["s7CVarArgP", "save"]
+- !private ["s7CVarArgP", "saveContext"]
 - !private ["s7CVarArgP", "userInfo"]
 - !private ["s7CVarArgP", "viewContext"]
 - ["s7CVarArgP", "window"]
@@ -101,6 +98,7 @@ depends-member:
 - !private ["s28CustomDebugStringConvertibleP", "loadPersistentStores"]
 - !private ["s28CustomDebugStringConvertibleP", "persistentContainer"]
 - !private ["s28CustomDebugStringConvertibleP", "save"]
+- !private ["s28CustomDebugStringConvertibleP", "saveContext"]
 - !private ["s28CustomDebugStringConvertibleP", "userInfo"]
 - !private ["s28CustomDebugStringConvertibleP", "viewContext"]
 - ["s28CustomDebugStringConvertibleP", "window"]
@@ -129,6 +127,7 @@ depends-member:
 - !private ["s23CustomStringConvertibleP", "loadPersistentStores"]
 - !private ["s23CustomStringConvertibleP", "persistentContainer"]
 - !private ["s23CustomStringConvertibleP", "save"]
+- !private ["s23CustomStringConvertibleP", "saveContext"]
 - !private ["s23CustomStringConvertibleP", "userInfo"]
 - !private ["s23CustomStringConvertibleP", "viewContext"]
 - ["s23CustomStringConvertibleP", "window"]
@@ -157,6 +156,7 @@ depends-member:
 - !private ["s9EquatableP", "loadPersistentStores"]
 - !private ["s9EquatableP", "persistentContainer"]
 - !private ["s9EquatableP", "save"]
+- !private ["s9EquatableP", "saveContext"]
 - !private ["s9EquatableP", "userInfo"]
 - !private ["s9EquatableP", "viewContext"]
 - ["s9EquatableP", "window"]
@@ -186,6 +186,7 @@ depends-member:
 - !private ["s8HashableP", "loadPersistentStores"]
 - !private ["s8HashableP", "persistentContainer"]
 - !private ["s8HashableP", "save"]
+- !private ["s8HashableP", "saveContext"]
 - !private ["s8HashableP", "userInfo"]
 - !private ["s8HashableP", "viewContext"]
 - ["s8HashableP", "window"]
@@ -250,6 +251,7 @@ depends-member:
 - !private ["So16NSObjectProtocolP", "loadPersistentStores"]
 - !private ["So16NSObjectProtocolP", "persistentContainer"]
 - !private ["So16NSObjectProtocolP", "save"]
+- !private ["So16NSObjectProtocolP", "saveContext"]
 - !private ["So16NSObjectProtocolP", "userInfo"]
 - !private ["So16NSObjectProtocolP", "viewContext"]
 - ["So16NSObjectProtocolP", "window"]
@@ -280,6 +282,7 @@ depends-member:
 - ["So21UIApplicationDelegateP", "applicationWillTerminate"]
 - !private ["So21UIApplicationDelegateP", "fatalError"]
 - !private ["So21UIApplicationDelegateP", "persistentContainer"]
+- !private ["So21UIApplicationDelegateP", "saveContext"]
 - ["So21UIApplicationDelegateP", "window"]
 - !private ["So30UIPasteConfigurationSupportingP", "NSPersistentContainer"]
 - ["So30UIPasteConfigurationSupportingP", ""]
@@ -298,6 +301,7 @@ depends-member:
 - !private ["So30UIPasteConfigurationSupportingP", "fatalError"]
 - !private ["So30UIPasteConfigurationSupportingP", "init"]
 - !private ["So30UIPasteConfigurationSupportingP", "persistentContainer"]
+- !private ["So30UIPasteConfigurationSupportingP", "saveContext"]
 - ["So30UIPasteConfigurationSupportingP", "window"]
 - ["So11UIResponderC", "Bool"]
 - !private ["So11UIResponderC", "NSError"]
@@ -341,6 +345,7 @@ depends-member:
 - !private ["So30UIResponderStandardEditActionsP", "fatalError"]
 - !private ["So30UIResponderStandardEditActionsP", "init"]
 - !private ["So30UIResponderStandardEditActionsP", "persistentContainer"]
+- !private ["So30UIResponderStandardEditActionsP", "saveContext"]
 - ["So30UIResponderStandardEditActionsP", "window"]
 - !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "_getBuiltinLogicValue"]
 - !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
@@ -368,6 +373,7 @@ depends-member:
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "loadPersistentStores"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "persistentContainer"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "save"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "saveContext"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "userInfo"]
 - !private ["10Foundation27_KeyValueCodingAndObservingP", "viewContext"]
 - ["10Foundation27_KeyValueCodingAndObservingP", "window"]
@@ -452,4 +458,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
 - "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator11.4.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
-interface-hash: "ba13bbff1127528607e0c419e78215b6"
+interface-hash: "c00597493a33474bbee458a2a9ca2a32"

@@ -44,6 +44,30 @@
 		<data>
 		n8YtSBDsDTuxTgkp2qJeV0kINME=
 		</data>
+		<key>Frameworks/Realm.framework/Info.plist</key>
+		<data>
+		RDnhCS/ElCbBWLJR5bcwzEUVPJY=
+		</data>
+		<key>Frameworks/Realm.framework/Realm</key>
+		<data>
+		7F40dKWBdE0Czxm9OE/rM9XGjpY=
+		</data>
+		<key>Frameworks/Realm.framework/_CodeSignature/CodeResources</key>
+		<data>
+		6dvRDvBxSiqSqs3zptmUJDrThu0=
+		</data>
+		<key>Frameworks/RealmSwift.framework/Info.plist</key>
+		<data>
+		b7nOW4Qs0qPB56SI0CkMxkdW218=
+		</data>
+		<key>Frameworks/RealmSwift.framework/RealmSwift</key>
+		<data>
+		a42EPnaiNrwNUjIwosiDv1FOOk0=
+		</data>
+		<key>Frameworks/RealmSwift.framework/_CodeSignature/CodeResources</key>
+		<data>
+		gdhAwN4LkeR6EtC2xx4HtrWCw3c=
+		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
 		D0qizJEeoRpTAAyYUEB50ZtreBI=
@@ -223,6 +247,72 @@
 			<key>hash2</key>
 			<data>
 			KuhLESsMC3GKz2Az2MbQUzpQdFdzTU/b3+JsOtPW81c=
+			</data>
+		</dict>
+		<key>Frameworks/Realm.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			RDnhCS/ElCbBWLJR5bcwzEUVPJY=
+			</data>
+			<key>hash2</key>
+			<data>
+			iTsIVqjrp/GuZUDOYPxSn9NAEzw8auhEGi9xGTpvPwg=
+			</data>
+		</dict>
+		<key>Frameworks/Realm.framework/Realm</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			7F40dKWBdE0Czxm9OE/rM9XGjpY=
+			</data>
+			<key>hash2</key>
+			<data>
+			hxG/+aUjwIa8Hln4eVOMyBUYG4sfOOqet5EQJsVFlMg=
+			</data>
+		</dict>
+		<key>Frameworks/Realm.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6dvRDvBxSiqSqs3zptmUJDrThu0=
+			</data>
+			<key>hash2</key>
+			<data>
+			jkuQXAI7kzZV2DA7aIdktd2cuVbdxluv2+Nfk2Bn56Q=
+			</data>
+		</dict>
+		<key>Frameworks/RealmSwift.framework/Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			b7nOW4Qs0qPB56SI0CkMxkdW218=
+			</data>
+			<key>hash2</key>
+			<data>
+			er2W6mem5PH/cBb+fo2BLSSaxkj1b+RIeQfxN1Hwm+8=
+			</data>
+		</dict>
+		<key>Frameworks/RealmSwift.framework/RealmSwift</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			a42EPnaiNrwNUjIwosiDv1FOOk0=
+			</data>
+			<key>hash2</key>
+			<data>
+			vckzqBHPnLKgPpk9Z9zGxVndwseCZb2fJZH9O+0vPdE=
+			</data>
+		</dict>
+		<key>Frameworks/RealmSwift.framework/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gdhAwN4LkeR6EtC2xx4HtrWCw3c=
+			</data>
+			<key>hash2</key>
+			<data>
+			QK0aYc9d8qDMy9oZKAfBp/9PTD4vkkeUkxRP9X5/+Oc=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
