@@ -8,14 +8,17 @@
 
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
-class TodoListViewController: UITableViewController {
+class TodoListViewController: SwipeTableViewController {
     
     
- var todoItems: Results<Item>!
  let realm = try! Realm()
+ var todoItems: Results<Item>!
     
- var selectedCategory : Category? {
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var selectedCategory : Category? {
         
         didSet {
             loadItems()
@@ -26,9 +29,24 @@ class TodoListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   tableView.separatorStyle = .none
         
+       
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+       
+        guard let colorHex = selectedCategory?.color else { fatalError()}
+        
+        updateNavBar(withHexColor: colorHex)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+    
+        updateNavBar(withHexColor: "1D9BF6")
     }
     
     //MARK - TableView Datasource Methods
@@ -39,17 +57,26 @@ class TodoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoItemCell", for: indexPath)
-        
-        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         if let item = todoItems?[indexPath.row] {
             
             cell.textLabel?.text = item.title
             cell.accessoryType = item.done ? .checkmark : .none
-        } else {
             
+            
+            if let color = UIColor(hexString: selectedCategory!.color)?.darken(byPercentage:CGFloat(indexPath.row) / CGFloat(todoItems!.count)){
+                
+                cell.backgroundColor = color
+                cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+                }
+            
+            
+            
+        } else {
+    
             cell.textLabel?.text = "No items added"
         }
+        
         return cell
     }
     
@@ -76,9 +103,9 @@ class TodoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
 
     //MARK - Add new Section
-    
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
@@ -121,6 +148,32 @@ class TodoListViewController: UITableViewController {
 
         tableView.reloadData()
 
+    }
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let item = todoItems?[indexPath.row]{
+            
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                
+            }
+        }
+    }
+    
+    //MARK: Navigation Bar Color
+    func updateNavBar(withHexColor colorHexCode: String){
+         guard let navBar = navigationController?.navigationBar  else {fatalError("Navigation Controller does not exist")}
+         guard let navbarColor = UIColor(hexString: colorHexCode) else { fatalError()}
+        
+        title = selectedCategory?.name
+        navBar.barTintColor    = navbarColor
+        navBar.tintColor       = ContrastColorOf(navbarColor, returnFlat: true)
+        navBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: ContrastColorOf(navbarColor, returnFlat: true)]
+        searchBar.barTintColor = navbarColor
+        
     }
     
 }
