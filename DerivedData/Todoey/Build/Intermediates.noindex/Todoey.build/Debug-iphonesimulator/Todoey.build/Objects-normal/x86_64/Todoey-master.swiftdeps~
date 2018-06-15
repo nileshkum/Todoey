@@ -1,9 +1,9 @@
 version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
-options: "2a0eaa32e08594bfc62243343fd51c8c"
-build_time: [1528906850, 63696000]
+options: "8aea19a5f8645f0e531e67a129b9b912"
+build_time: [1529047315, 659839000]
 inputs:
-  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/Controller/TodoListViewController.swift": [1528906849, 0]
-  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/AppDelegate.swift": [1528654699, 0]
-  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/DerivedData/Todoey/Build/Intermediates.noindex/Todoey.build/Debug-iphonesimulator/Todoey.build/DerivedSources/CoreDataGenerated/DataModel/Item+CoreDataClass.swift": [1528653352, 0]
-  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/DerivedData/Todoey/Build/Intermediates.noindex/Todoey.build/Debug-iphonesimulator/Todoey.build/DerivedSources/CoreDataGenerated/DataModel/Item+CoreDataProperties.swift": [1528653352, 0]
-  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/DerivedData/Todoey/Build/Intermediates.noindex/Todoey.build/Debug-iphonesimulator/Todoey.build/DerivedSources/CoreDataGenerated/DataModel/DataModel+CoreDataModel.swift": [1528653352, 0]
+  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/Data Model/Item.swift": [1529046129, 0]
+  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/Controller/CategoryViewController.swift": [1529047153, 0]
+  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/Controller/TodoListViewController.swift": [1529047314, 0]
+  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/AppDelegate.swift": [1529001652, 0]
+  "/Users/nileshkumar/Documents/Files/helloworld/Todoey/Todoey/Todoey/Data Model/Category.swift": [1529045998, 0]

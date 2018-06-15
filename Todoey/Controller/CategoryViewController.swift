@@ -7,9 +7,11 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
 
 class CategoryViewController: UITableViewController {
+    
+    let realm = try! Realm()
     
     var categories = [Category]() // Item of type entity
     
@@ -18,7 +20,7 @@ class CategoryViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        loadItems()
+//        loadItems()
      
     }
 
@@ -34,11 +36,11 @@ class CategoryViewController: UITableViewController {
             // what will happen when user click on add button
             
            
-            let newCategory = Category(context: self.context)
+            let newCategory = Category()
             newCategory.name = textField.text!
             self.categories.append(newCategory)
             
-            self.saveItems()
+            self.save(category: newCategory)
         }
         
         
@@ -91,30 +93,32 @@ class CategoryViewController: UITableViewController {
     
     
     //MARK: - DATA Manipulation
-    func saveItems(){
+    func save(category: Category){
         
         do {
             
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         } catch {
             print("Erro saving context \(error)")
-        }
-        
-        self.tableView.reloadData()
-        
-    }
-    
-    func loadItems(with request: NSFetchRequest<Category> = Category.fetchRequest()){
-        
-        do {
-            categories =  try context.fetch(request)
-        } catch {
-            print("Error Fetching request \(error)")
         }
         
         tableView.reloadData()
         
     }
+    
+//    func loadItems(with request: NSFetchRequest<Category> = Category.fetchRequest()){
+//
+//        do {
+//            categories =  try context.fetch(request)
+//        } catch {
+//            print("Error Fetching request \(error)")
+//        }
+//
+//        tableView.reloadData()
+//
+//    }
     
     
 }

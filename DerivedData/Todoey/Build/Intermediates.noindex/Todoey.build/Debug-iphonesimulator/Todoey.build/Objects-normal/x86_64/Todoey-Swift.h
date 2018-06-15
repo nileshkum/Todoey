@@ -164,7 +164,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if __has_feature(modules)
 @import UIKit;
-@import CoreData;
+@import RealmSwift;
 @import Foundation;
 #endif
 
@@ -194,28 +194,16 @@ SWIFT_CLASS("_TtC6Todoey11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSEntityDescription;
-@class NSManagedObjectContext;
+@class RLMRealm;
+@class RLMObjectSchema;
+@class RLMSchema;
 
-SWIFT_CLASS_NAMED("Category")
-@interface Category : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class Item;
-@class NSSet;
-
-@interface Category (SWIFT_EXTENSION(Todoey))
-- (void)addItemsObject:(Item * _Nonnull)value;
-- (void)removeItemsObject:(Item * _Nonnull)value;
-- (void)addItems:(NSSet * _Nonnull)values;
-- (void)removeItems:(NSSet * _Nonnull)values;
-@end
-
-
-@interface Category (SWIFT_EXTENSION(Todoey))
-@property (nonatomic, copy) NSString * _Nullable name;
-@property (nonatomic, strong) NSSet * _Nullable items;
+SWIFT_CLASS("_TtC6Todoey8Category")
+@interface Category : RealmSwiftObject
+@property (nonatomic, copy) NSString * _Nonnull name;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UIBarButtonItem;
@@ -240,15 +228,12 @@ SWIFT_CLASS("_TtC6Todoey22CategoryViewController")
 
 
 SWIFT_CLASS("_TtC6Todoey4Item")
-@interface Item : NSManagedObject
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface Item (SWIFT_EXTENSION(Todoey))
+@interface Item : RealmSwiftObject
+@property (nonatomic, copy) NSString * _Nonnull title;
 @property (nonatomic) BOOL done;
-@property (nonatomic, copy) NSString * _Nullable title;
-@property (nonatomic, strong) Category * _Nullable parentCategory;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithRealm:(RLMRealm * _Nonnull)realm schema:(RLMObjectSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithValue:(id _Nonnull)value schema:(RLMSchema * _Nonnull)schema OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -262,13 +247,6 @@ SWIFT_CLASS("_TtC6Todoey22TodoListViewController")
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-@end
-
-@class UISearchBar;
-
-@interface TodoListViewController (SWIFT_EXTENSION(Todoey)) <UISearchBarDelegate>
-- (void)searchBarSearchButtonClicked:(UISearchBar * _Nonnull)searchBar;
-- (void)searchBar:(UISearchBar * _Nonnull)searchBar textDidChange:(NSString * _Nonnull)searchText;
 @end
 
 #if __has_attribute(external_source_symbol)
