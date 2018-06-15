@@ -15,7 +15,7 @@ class TodoListViewController: UITableViewController {
  var todoItems: Results<Item>!
  let realm = try! Realm()
     
- var selectedCategories : Category? {
+ var selectedCategory : Category? {
         
         didSet {
             loadItems()
@@ -61,17 +61,23 @@ class TodoListViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(itemArray[indexPath.row])
         
         
+        if let item = todoItems?[indexPath.row]{
+            do {
+                try realm.write {
+                item.done = !item.done
+            }
+            } catch {
+                print("Error SAving Itesm, \(error)")
+            }
+        }
+        tableView.reloadData()
 //        context.delete(itemArray[indexPath.row])
 //        itemArray.remove(at: indexPath.row)
-        
 //        itemArray[indexPath.row].done = !itemArray[indexPath.row].done // this replace below line
-        
-        saveItems()
+//        saveItems()
   
-    
         // Animation on selection
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -88,14 +94,17 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
             // what will happen when user click on add button
             
-            
-//            let newItem = Item(context: self.context)
-//            newItem.title = textField.text!
-//            newItem.done = false
-//            newItem.parentCategory = self.selectedCategories
-//            self.itemArray.append(newItem)
-            
-            self.saveItems()
+            if let currentCategory = self.selectedCategory{
+                do {
+                try self.realm.write {
+                    let newItem = Item()
+                    newItem.title = textField.text!
+                    currentCategory.items.append(newItem)
+                }
+                } catch {
+                }
+            }
+             self.tableView.reloadData()
         }
         
         
@@ -112,22 +121,10 @@ class TodoListViewController: UITableViewController {
     
     // MARK Model Manipulation
     
-    func saveItems(){
-        
-//        do {
-//
-//            try context.save()
-//        } catch {
-//            print("Erro saving context \(error)")
-//        }
-        
-        tableView.reloadData()
-        
-    }
     
     func loadItems() { //give default value
 
-       todoItems = selectedCategories?.items.sorted(byKeyPath: "title", ascending: true)
+       todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
 
         tableView.reloadData()
 

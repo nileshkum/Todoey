@@ -84,7 +84,7 @@ class CategoryViewController: UITableViewController {
         let destinationVC = segue.destination as! TodoListViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategories = categories?[indexPath.row]
+            destinationVC.selectedCategory = categories?[indexPath.row]
         }
         
     }
@@ -99,6 +99,8 @@ class CategoryViewController: UITableViewController {
         } catch {
             
         }
+        
+        tableView.reloadData()
     }
     
     func loadCategories(){
