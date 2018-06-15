@@ -6,11 +6,10 @@
 	<string>Foundation</string>
 	<string>net</string>
 	<string>RealmSwift</string>
-	<string>CoreData</string>
+	<string>Todoey</string>
 	<string>CommonCrypto</string>
 	<string>objc</string>
 	<string>realm</string>
-	<string>Todoey</string>
 	<string>sys</string>
 	<string>Realm</string>
 	<string>UIKit</string>

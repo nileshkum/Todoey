@@ -32,6 +32,10 @@ class TodoListViewController: UITableViewController {
     }
     
     //MARK - TableView Datasource Methods
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return todoItems?.count ?? 1
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -46,16 +50,10 @@ class TodoListViewController: UITableViewController {
             
             cell.textLabel?.text = "No items added"
         }
-        
-        
-        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return todoItems?.count ?? 1
-    }
+    
     
     //MARK - Table View Delegate Methods // What happens when we cliack on cells
     
@@ -73,10 +71,6 @@ class TodoListViewController: UITableViewController {
             }
         }
         tableView.reloadData()
-//        context.delete(itemArray[indexPath.row])
-//        itemArray.remove(at: indexPath.row)
-//        itemArray[indexPath.row].done = !itemArray[indexPath.row].done // this replace below line
-//        saveItems()
   
         // Animation on selection
         tableView.deselectRow(at: indexPath, animated: true)
@@ -99,9 +93,10 @@ class TodoListViewController: UITableViewController {
                 try self.realm.write {
                     let newItem = Item()
                     newItem.title = textField.text!
+                    newItem.createdDate = Date()
                     currentCategory.items.append(newItem)
-                }
-                } catch {
+                  }
+                 } catch {
                 }
             }
              self.tableView.reloadData()
@@ -120,8 +115,6 @@ class TodoListViewController: UITableViewController {
     }
     
     // MARK Model Manipulation
-    
-    
     func loadItems() { //give default value
 
        todoItems = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
@@ -132,33 +125,28 @@ class TodoListViewController: UITableViewController {
     
 }
 
-////MARK: Search bar Extensio
-//extension TodoListViewController: UISearchBarDelegate{
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//
-//
-//        // Filters
-//        let request : NSFetchRequest<Item> = Item.fetchRequest()
-//
-//        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
-//
-//        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-//
-//        loadItems(with: request,predicate: predicate)
-//
-//    }
-//
-//        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            if searchBar.text?.count == 0{
-//                loadItems()
-//
-//                DispatchQueue.main.async {
-//                     searchBar.resignFirstResponder() // this method stops all activity on screen
-//                }
-//
-//
-//            }
-//        }
-//}
+////MARK: Search bar Extension
+extension TodoListViewController: UISearchBarDelegate{
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+
+        // Filters
+        todoItems = todoItems?.filter("title CONTAINS[cd] %@", searchBar.text!).sorted(byKeyPath: "createdDate", ascending: true)
+        tableView.reloadData()
+    }
+
+        func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            if searchBar.text?.count == 0{
+                
+                loadItems()
+
+                DispatchQueue.main.async {
+                     searchBar.resignFirstResponder() // this method stops all activity on screen
+                }
+
+
+            }
+        
+    }
+}
